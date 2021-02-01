@@ -1,4 +1,6 @@
-# turtle-rs
+# turtle-crab
+
+Forked from https://github.com/mneumann/turtle-graphics-rs
 
 A turtle graphics engine for Rust. Generates Scalable Vector Graphics (SVG) and
 Encapsulated PostScript (EPS) out-of-the-box.
@@ -28,6 +30,6 @@ fn main() {
 }
 ```
 
-For more examples see my [Lindenmayer-system library][1].
+For more examples see mneumann's [Lindenmayer-system library][1].
 
 [1]: https://github.com/mneumann/lindenmayer-system
