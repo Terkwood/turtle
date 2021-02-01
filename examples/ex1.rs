@@ -1,5 +1,5 @@
 use std::fs::File;
-use turtle_graphics::{Canvas, Turtle};
+use turtle_crab::{Canvas, Turtle};
 
 fn main() {
     let mut t = Canvas::new();
@@ -13,6 +13,8 @@ fn main() {
     t.forward(100.0);
     t.right(90.0);
     t.forward(100.0);
-    t.save_svg(&mut File::create("test.svg").unwrap()).unwrap();
-    t.save_eps(&mut File::create("test.eps").unwrap()).unwrap();
+    t.save_svg(&mut File::create("test.svg").unwrap(), None)
+        .unwrap();
+    t.save_eps(&mut File::create("test.eps").unwrap(), None)
+        .unwrap();
 }
