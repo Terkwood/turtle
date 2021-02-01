@@ -4,6 +4,6 @@ description = "Turtle Graphics for Rust"
 edition = "2018"
 keywords = ["graphics"]
 license = "MIT"
-name = "turtle-graphics"
+name = "turtle-crab"
 repository = "https://github.com/mneumann/turtle-graphics-rs"
 version = "0.2.0"
