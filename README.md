@@ -1,4 +1,4 @@
-# turtle-crab
+# turtle
 
 A turtle graphics engine for Rust. Generates Scalable Vector Graphics (SVG).
 
