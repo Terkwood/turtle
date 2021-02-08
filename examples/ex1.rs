@@ -1,5 +1,5 @@
 use std::fs::File;
-use turtle_crab::{Canvas, Turtle};
+use turtle::{Canvas, Turtle};
 
 fn main() {
     let mut t = Canvas::new();
