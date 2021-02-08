@@ -1,9 +1,10 @@
 # turtle-crab
 
-Forked from https://github.com/mneumann/turtle-graphics-rs
+A turtle graphics engine for Rust. Generates Scalable Vector Graphics (SVG).
 
-A turtle graphics engine for Rust. Generates Scalable Vector Graphics (SVG) and
-Encapsulated PostScript (EPS) out-of-the-box.
+Forked from https://github.com/mneumann/turtle-graphics-rs.  Thank you to the original author!
+
+This version primarily supports [Terkwood/forest](https://github.com/Terkwood/forest).
 
 ## Example
 
@@ -24,12 +25,5 @@ fn main() {
 
     // write the graphic (SVG) to stdout.
     t.save_svg(&mut std::io::stdout()).unwrap();
-
-   // or write it as EPS
-   t.save_eps(&mut File::create("test.eps").unwrap()).unwrap();
 }
 ```
-
-For more examples see mneumann's [Lindenmayer-system library][1].
-
-[1]: https://github.com/mneumann/lindenmayer-system
