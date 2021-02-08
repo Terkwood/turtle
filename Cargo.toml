@@ -6,4 +6,4 @@ keywords = ["graphics"]
 license = "MIT"
 name = "turtle-crab"
 repository = "https://github.com/mneumann/turtle-graphics-rs"
-version = "0.2.0"
+version = "0.3.0"

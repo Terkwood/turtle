@@ -15,6 +15,4 @@ fn main() {
     t.forward(100.0);
     t.save_svg(&mut File::create("test.svg").unwrap(), None)
         .unwrap();
-    t.save_eps(&mut File::create("test.eps").unwrap(), None)
-        .unwrap();
 }
