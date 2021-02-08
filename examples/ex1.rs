@@ -1,5 +1,5 @@
 use std::fs::File;
-use turtle::{Canvas, Turtle};
+use turtle::{Canvas, SvgParams, Turtle};
 
 fn main() {
     let mut t = Canvas::new();
@@ -13,6 +13,6 @@ fn main() {
     t.forward(100.0);
     t.right(90.0);
     t.forward(100.0);
-    t.save_svg(&mut File::create("test.svg").unwrap(), None)
+    t.save_svg(&mut File::create("test.svg").unwrap(), SvgParams::default())
         .unwrap();
 }

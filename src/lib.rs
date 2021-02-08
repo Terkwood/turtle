@@ -2,8 +2,6 @@ use std::f32::consts::PI;
 use std::io::{self, Write};
 use std::ops::{Add, Neg};
 
-const DEFAULT_STROKE_WIDTH: f32 = 2.0;
-
 #[derive(Copy, Clone, Debug)]
 pub struct Position(f32, f32);
 
@@ -250,7 +248,7 @@ impl Canvas {
     }
 
     /// Saves the turtle graphic as Scalable Vector Graphic (SVG).
-    pub fn save_svg<W: Write>(&self, wr: &mut W, stroke_width: Option<f32>) -> io::Result<()> {
+    pub fn save_svg<W: Write>(&self, wr: &mut W, params: SvgParams) -> io::Result<()> {
         // Determine extend of canvas
         let mut bounds = Bounds::new();
 
@@ -285,8 +283,8 @@ impl Canvas {
 
         writeln!(
             wr,
-            r#"<g stroke="black" stroke-width="{}" fill="none">"#,
-            stroke_width.unwrap_or(DEFAULT_STROKE_WIDTH)
+            r#"<g stroke="{}" stroke-width="{}" fill="none">"#,
+            params.stroke_color.0, params.stroke_width.0
         )?;
 
         for path in self.paths.iter() {
@@ -366,5 +364,39 @@ impl Turtle for Canvas {
         self.states.pop();
         let pos = self.current_state().pos;
         self.move_to(pos);
+    }
+}
+
+pub struct SvgParams {
+    pub stroke_width: SvgStrokeWidth,
+    pub stroke_color: SvgStrokeColor,
+}
+
+const DEFAULT_STROKE_WIDTH: f32 = 2.0;
+const DEFAULT_STROKE_COLOR: &str = "black";
+pub struct SvgStrokeWidth(pub f32);
+impl Default for SvgStrokeWidth {
+    fn default() -> Self {
+        Self(DEFAULT_STROKE_WIDTH)
+    }
+}
+pub struct SvgStrokeColor(pub String);
+impl Default for SvgStrokeColor {
+    fn default() -> Self {
+        Self(DEFAULT_STROKE_COLOR.to_string())
+    }
+}
+impl From<&str> for SvgStrokeColor {
+    fn from(s: &str) -> Self {
+        Self(s.to_string())
+    }
+}
+
+impl Default for SvgParams {
+    fn default() -> Self {
+        Self {
+            stroke_width: SvgStrokeWidth::default(),
+            stroke_color: SvgStrokeColor::default(),
+        }
     }
 }
