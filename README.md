@@ -9,8 +9,6 @@ This version primarily supports [Terkwood/forest](https://github.com/Terkwood/fo
 ## Example
 
 ```rust
-extern crate turtle;
-
 use turtle::{Canvas, Turtle};
 
 fn main() {
