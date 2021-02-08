@@ -9,7 +9,7 @@ This version primarily supports [Terkwood/forest](https://github.com/Terkwood/fo
 ## Example
 
 ```rust
-use turtle::{Canvas, Turtle};
+use turtle::{Canvas, Turtle, SvgParams};
 
 fn main() {
     let mut t = Canvas::new();
@@ -22,6 +22,6 @@ fn main() {
     // ...
 
     // write the graphic (SVG) to stdout.
-    t.save_svg(&mut std::io::stdout()).unwrap();
+    t.save_svg(&mut std::io::stdout(), SvgParams::default()).unwrap();
 }
 ```
